@@ -7,8 +7,8 @@ import matplotlib.pyplot as plt
 @st.cache
 def load_data():
      url = 'https://docs.google.com/spreadsheets/d/1j05uIaAorDbsqwQaJonyTJUbCRsRsjDF/edit?usp=sharing&ouid=112107341849971302946&rtpof=true&sd=true'
-    data = pd.read_excel(url)
-    return data
+     data = pd.read_excel(url)
+     return data
 
 df = load_data()
 st.title('La perroneta')
