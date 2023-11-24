@@ -41,4 +41,3 @@ st.dataframe(filtered_df)
 st.subheader('Comentarios de los clientes')
 st.write(filtered_df['Opinion'])
 
-streamlit run proyecto_streamlit.py
