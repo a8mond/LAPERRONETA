@@ -1,10 +1,11 @@
+import sys
 import streamlit as st
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import datetime
 
-
+st.write(f"Python version: {sys.version}")
 df = pd.read_csv('datasetPerroneta.csv', sep=';', header=0)
 df['FechaCita'] = pd.to_datetime(df['FechaCita'], dayfirst=True)
 
@@ -73,6 +74,18 @@ plt.setp(ax.spines.values(), visible=False)  # Oculta el marco
 ax.set_facecolor('lightgrey')  # Cambia el color de fondo
 st.pyplot(fig)
 
+#sidebar opiniones
+tipo_opinion = st.sidebar.selectbox('Selecciona el tipo de opinión', df['Opinion'].unique())
+
+st.write(f'Clientes con opinión: {tipo_opinion}')
+clientes_opinion = df[df['Opinion'] == tipo_opinion]
+
+
+if clientes_opinion.empty:
+    st.write(f'No hay opiniones {tipo_opinion}.')
+else:
+    st.write(clientes_opinion['NombreCliente'])
+
 
 # Cantidad de clientes por distrito 
 st.subheader('Cantidad de clientes por distrito')
@@ -88,8 +101,9 @@ distrito_popular = df['Distrito'].value_counts().idxmax()
 cantidad_distrito = df['Distrito'].value_counts().max()
 st.write(f"El distrito con más clientes es {distrito_popular} con {cantidad_distrito} clientes.")
 
-distrito_seleccionado = st.sidebar.selectbox('Selecciona un distrito', df['Distrito'].unique())
-st.subheader(f'Clientes en el distrito: {distrito_seleccionado}')
+#sidebar distrito
+distrito_seleccionado = st.sidebar.selectbox('Selecciona un distrito para ver los clientes', df['Distrito'].unique())
+st.subheader(f'Detalles de clientes en el distrito: {distrito_seleccionado}')
 
 # Filtrar por distrito seleccionado
 clientes_distrito = df[df['Distrito'] == distrito_seleccionado]
@@ -100,3 +114,21 @@ if clientes_distrito.empty:
 else:
     st.write(clientes_distrito[['NombreCliente', 'RazaMascota', 'Servicio 1', 'Servicio 2']])
 
+
+
+# multiselect widget en la barra lateral para seleccionar múltiples distritos
+distritos_seleccionados = st.sidebar.multiselect(
+    'Selecciona los distritos para ver detalles de citas',
+    options=df['Distrito'].unique(),
+    default=df['Distrito'].unique()  # Opcional: puedes establecer valores predeterminados aquí
+)
+st.write(f'Detalles de citas en los distritos: {distritos_seleccionados}')
+
+# Filtra el DataFrame basado en los distritos seleccionados
+if distritos_seleccionados:
+    df_filtrado = df[df['Distrito'].isin(distritos_seleccionados)]
+else:
+    df_filtrado = df  # Si no se selecciona nada, muestra todos los datos
+
+# Procede a mostrar los datos filtrados o realizar más operaciones
+st.write(df_filtrado)

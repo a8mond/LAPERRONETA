@@ -1,7 +1,7 @@
 ﻿IDCliente;NombreCliente;Distrito;RazaMascota;Canal comunicacion;FechaCita;Servicio 1;Servicio 2;Opinion
 1;Mariel Civilchez;Miraflores;Pekinés;Whatsapp;10/01/2023;Grooming;Pipeta;Positiva
-2;Ana Sanchez;SJL;Husky;Whatsapp;11/01/2023;Grooming;Pipeta;Positiva
-3;Nidra Mick;Lince;Beagle;Whatsapp;12/01/2023;Grooming;;Positiva
+2;Ana Sanchez;SJL;Husky;Whatsapp;10/01/2023;Grooming;Pipeta;Positiva
+3;Nidra Mick;Lince;Beagle;Whatsapp;10/01/2023;Grooming;;Positiva
 4;Rangi Carothers;San Isidro;Golden;Whatsapp;13/01/2023;Grooming;;Positiva
 5;Tulip Vermillion;SMP;Mixto;Whatsapp;15/01/2023;Grooming;Pipeta;Positiva
 6;Sudhir Halloran;Breña;Labrador;Whatsapp;16/01/2023;Grooming;;Positiva
@@ -31,13 +31,3 @@
 10;Galatea Carte;Pueblo Libre;Shih tzu;Whatsapp;15/02/2023;Grooming;Pipeta;Positiva
 22;Garland Groth;San Isidro;Poodle;Whatsapp;16/02/2023;Grooming;Pipeta;Positiva
 23;Penny Oleary;Rimac;Shih tzu;Whatsapp;17/02/2023;Grooming;Pipeta;Positiva
-;;;;;;;;
-;;;;;;;;
-;;;;;;;;
-;;;;;;;;
-;;;;;;;;
-;;;;;;;;
-;;;;;;;;
-;;;;;;;;
-;;;;;;;;
-;;;;;;;;
